@@ -6,5 +6,6 @@ namespace Leipper.PlutoRoverCoding.NasaRover
 {
     public interface IRover
     {
+        Position MoveRover(string command);
     }
 }
