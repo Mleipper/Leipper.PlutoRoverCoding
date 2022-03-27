@@ -66,8 +66,6 @@ namespace Leipper.PlutoRoverCoding.NasaRover
 
         public bool IsVaildCommand(string command)
         {
-           var i =  VaildCommandRegex.Matches(command);
-            var b = VaildCommandRegex.IsMatch(command);
             return VaildCommandRegex.IsMatch(command);
         }
     }
