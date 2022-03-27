@@ -9,8 +9,6 @@ namespace Leipper.PlutoRoverCoding.NasaRover
     public class Rover : IRover
     {
         private readonly Regex VaildCommandRegex = new Regex("^([FBRL])+$");
-        private int XAxisMax { get; }
-        private int YAxisMax { get; }
         private Position Position { get;}
 
         private const char LeftCommand = 'L';
@@ -20,10 +18,7 @@ namespace Leipper.PlutoRoverCoding.NasaRover
 
         public Rover(int xAxisMax, int yAxisMax, int xAxisStart, int yAxisStart, Orientation orientation)
         {
-            XAxisMax = xAxisMax;
-            YAxisMax = yAxisMax;
-            Position = new Position(xAxisStart, yAxisStart, orientation);
-
+            Position = new Position(xAxisStart, yAxisStart, orientation, xAxisMax, yAxisMax);
         }
 
         public Position MoveRover(string command)
@@ -38,13 +33,11 @@ namespace Leipper.PlutoRoverCoding.NasaRover
                 throw new Exception("Invalid Command");
             }
 
-
-
             foreach (var letter in command)
             {
                 if (letter == LeftCommand)
                 {
-                    Position.RotateOrientationRight();
+                    Position.RotateOrientationLeft();
                     continue;
                 }
 

@@ -52,7 +52,7 @@ namespace Leipper.PlutoRoverCoding.Tests
         [Fact]
         public void MoveRoverTest()
         {
-            var postion = new Position(1, 1, Orientation.East);
+            var postion = new Position(1, 1, Orientation.East, 100, 100);
 
             IRover subject = new Rover(100, 100, 0, 0, Orientation.North);
 
@@ -66,6 +66,19 @@ namespace Leipper.PlutoRoverCoding.Tests
             result.GetCurrentYAxisPosition().Should().Be(postion.GetCurrentYAxisPosition());
         }
 
+        [Fact]
+        public void MoveRoverTest_ShouldThrowException()
+        {
+            var postion = new Position(1, 1, Orientation.East, 100, 100);
+
+            IRover subject = new Rover(100, 100, 0, 0, Orientation.North);
+
+            string testCommand = "BBB";
+
+            subject.Invoking(y => y.MoveRover(testCommand))
+                .Should().Throw<IndexOutOfRangeException>()
+                .WithMessage("Unable to move to area off grid");
+        }
 
 
 
