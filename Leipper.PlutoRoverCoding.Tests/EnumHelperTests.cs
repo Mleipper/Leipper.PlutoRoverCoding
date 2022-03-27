@@ -10,11 +10,11 @@ namespace Leipper.PlutoRoverCoding.Tests
     public class EnumHelperTests
     {
         [Theory]
-        [InlineData(Direction.East, "E")]
-        [InlineData(Direction.South, "S")]
-        [InlineData(Direction.West, "W")]
-        [InlineData(Direction.North, "N")]
-        public void GetEnumDescriptionTest(Direction direction, string expectedResult)
+        [InlineData(Orientation.East, "E")]
+        [InlineData(Orientation.South, "S")]
+        [InlineData(Orientation.West, "W")]
+        [InlineData(Orientation.North, "N")]
+        public void GetEnumDescriptionTest(Orientation direction, string expectedResult)
         {
             var directionName = EnumHelper.GetEnumDescription(direction);
 

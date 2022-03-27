@@ -12,17 +12,38 @@ namespace Leipper.PlutoRoverCoding.NasaRover
         private int XAxisPosition { get; set; }
         private int YAxisPosition { get; set; }
 
-        private Direction Orientation;
+        private Orientation Orientation;
 
 
-        public Position(int xAxisPosition, int yAxisPosition, Direction orientation)
+        public Position(int xAxisPosition, int yAxisPosition, Orientation orientation)
         {
             this.XAxisPosition = xAxisPosition;
             this.YAxisPosition = yAxisPosition;
             this.Orientation = orientation;
         }
 
-        public string GetCurrentOrientation()
+
+        public void RotateOrientationRight()
+        {
+
+        }
+
+        public void RotateOrientationLeft()
+        {
+
+        }
+
+        public void MoveForward()
+        {
+
+        }
+
+        public void MoveBackwards()
+        {
+
+        }
+
+        public string GetCurrentOrientationAsString()
         {
             return EnumHelper.GetEnumDescription(Orientation);
         }

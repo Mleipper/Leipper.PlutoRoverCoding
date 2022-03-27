@@ -13,7 +13,12 @@ namespace Leipper.PlutoRoverCoding.NasaRover
         private int YAxisMax { get; }
         private Position Position { get;}
 
-        public Rover(int xAxisMax, int yAxisMax, int xAxisStart, int yAxisStart, Direction orientation)
+        private const char LeftCommand = 'L';
+        private const char RightCommand = 'R';
+        private const char BackCommand = 'B';
+        private const char ForwardCommand = 'F';
+
+        public Rover(int xAxisMax, int yAxisMax, int xAxisStart, int yAxisStart, Orientation orientation)
         {
             XAxisMax = xAxisMax;
             YAxisMax = yAxisMax;
@@ -34,6 +39,33 @@ namespace Leipper.PlutoRoverCoding.NasaRover
             }
 
 
+
+            foreach (var letter in command)
+            {
+                if (letter == LeftCommand)
+                {
+                    Position.RotateOrientationRight();
+                    continue;
+                }
+
+                if (letter == RightCommand)
+                {
+                    Position.RotateOrientationRight();
+                    continue;
+                }
+
+                if (letter == ForwardCommand)
+                {
+                    Position.MoveForward();
+                    continue;
+                }
+
+                if (letter == BackCommand)
+                {
+                    Position.MoveBackwards();
+                    continue;
+                }
+            }
 
             return Position;
         }
