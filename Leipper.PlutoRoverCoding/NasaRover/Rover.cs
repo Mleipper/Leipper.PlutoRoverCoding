@@ -12,15 +12,15 @@ namespace Leipper.PlutoRoverCoding.NasaRover
         private int XAxisStart { get; }
         private int YAxisStart { get; }
 
-        private Direction currentDirection;
+        private Direction currentOrientation;
 
-        public Rover(int xAxisMax, int yAxisMax, int xAxisStart, int yAxisStart, Direction direction)
+        public Rover(int xAxisMax, int yAxisMax, int xAxisStart, int yAxisStart, Direction orientation)
         {
             XAxisMax = xAxisMax;
             YAxisMax = yAxisMax;
             XAxisStart = xAxisStart;
             YAxisStart = yAxisStart;
-            currentDirection = direction;
+            currentOrientation = orientation;
         }
 
 
