@@ -1,0 +1,11 @@
+We can make use of a message Queue that allows other classes to subscribe to it to allow the rover to communicate with all elements of the system by only updating one of them. 
+
+ 
+
+When the rover sends its data to the message Queue this will be broadcast to any class that if subscribing to the queue. This will include all dashboards and Database services, such that when the database service receives an update event this will trigger an internal event to save the historical data. When the dashboard receives an update message the new logs will get appended to the historical data and the DOM Re- Rendered. 
+
+ 
+
+I would choose to use a SQL database for data persistence as the logging data is likely to be of a known structure and unlikely to change as the code cannot be mutated once deployed to the live enviroment.  
+
+ 
